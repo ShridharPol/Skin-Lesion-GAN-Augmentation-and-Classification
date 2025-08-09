@@ -6,7 +6,7 @@ In rural and tribal parts of India, access to dermatologists is limited and conn
 - **Offline-capable** — no constant internet  
 - **Fast** — results in seconds
 
-I first built a **MobileNetV2 feasibility prototype** (separate repo) to test this idea. It ran fast on low-resource devices, but severe **class imbalance** in HAM10000 caused overfitting and poor recall on rare, clinically important classes.  
+I first built a **MobileNetV2 feasibility prototype** (separate repo) to test this idea. It trained quickly, but severe **class imbalance** in **HAM10000** led to overfitting and poor recall on rare, critical lesion types. 
 
 **Question:** can we use **GAN-generated images** to improve representation of minority classes, *without* abandoning the lightweight/portable constraint?
 
