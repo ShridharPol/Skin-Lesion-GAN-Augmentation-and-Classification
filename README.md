@@ -98,6 +98,9 @@ STGAN-HAM10000-VASC-BT.ipynb
 # Post-generation deduplication (run after Stage 2 for the final synthetic set)
 Generated_Images_Deduplication_pHash_wHash.ipynb
 
+# Train classifier with deduplicated synthetic + real data
+Classifier_with_GAN_Augmentation.ipynb
+
 STGAN-Finetune-BarlowTwins/
 ├── stgan_models_finetune.py         # Stage 2 G/D architectures
 ├── stgan_operations_finetune.py     # forward ops, Freeze-D hooks, feature taps
