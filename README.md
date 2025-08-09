@@ -1,6 +1,6 @@
 # Lightweight Skin Lesion Classification with GAN-based Augmentation (HAM10000)
 
-## 🌍 Motivation
+## Motivation
 In rural and tribal parts of India, access to dermatologists is limited and connectivity can be unreliable. To make AI-assisted screening useful there, models must be:
 - **Lightweight** — run on mobile/edge devices  
 - **Offline-capable** — no constant internet  
@@ -14,7 +14,7 @@ I first built a **MobileNetV2 feasibility prototype** (separate repo) to test th
 
 ---
 
-## 🔬 Approach (what I did)
+## Approach (what I did)
 The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with a lightweight backbone:
 
 1) **Baseline classifier**  
@@ -41,7 +41,7 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 
 ---
 
-## ⚙️ Why FastGAN (vs heavier GANs like StyleGAN2)?
+## Why FastGAN (vs heavier GANs like StyleGAN2)?
 - **Efficient:** Trains quickly on limited GPUs and smaller datasets.  
 - **Lightweight:** Better aligned with mobile/edge constraints and the overall project goal.  
 - **Flexible:** Easy to integrate **Freeze-D** and **Barlow Twins**; clean to customize.  
@@ -51,7 +51,7 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 
 ---
 
-## 📊 Results & Lessons
+## Results & Lessons
 
 **Final metrics**
 - **Mixed (real + synthetic) validation:** > **90%** accuracy  
@@ -66,7 +66,7 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 
 ---
 
-## 📦 Datasets & Pretrained Weights (Kaggle)
+## Datasets & Pretrained Weights (Kaggle)
 Large assets are hosted on Kaggle to keep this repo lean.
 
 1. **Stage 1 — Global FastGAN Weights (70K iters)**  
@@ -81,7 +81,7 @@ Large assets are hosted on Kaggle to keep this repo lean.
 > You can reproduce results *without* retraining by downloading the weights, or regenerate everything from the notebooks.
 
 ---
-## 📁 Repository Structure
+## Repository Structure
 
 ```plaintext
 fastgan-ham10000-phase1-unconditional-gan.ipynb
@@ -114,14 +114,14 @@ scripts/
 ```
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
-## 1️⃣ Environment Setup
+## 1️ Environment Setup
 ```bash
 pip install -r requirements.txt
 ```
 
-## 2️⃣ Download datasets & pretrained weights from Kaggle
+## 2️ Download datasets & pretrained weights from Kaggle
 See scripts/download_from_kaggle.md and replace <owner> and <slug> with your own:
 ```bash
 # examples
@@ -130,7 +130,7 @@ kaggle datasets download -d <owner>/<stage2-slug> -p datasets/ --unzip
 kaggle datasets download -d <owner>/<synthetic-slug> -p datasets/ --unzip
 ```
 
-## 3️⃣ Run notebooks in order
+## 3️ Run notebooks in order
 Stage 1
 fastgan-ham10000-phase1-unconditional-gan.ipynb
 (or load Stage-1 weights from Kaggle)
@@ -145,7 +145,7 @@ Train classifier
 Use real + deduplicated synthetic images in your classifier notebook.
 
 ---
-## 📦 Dataset Links (Kaggle)
+## Dataset Links (Kaggle)
 Stage 1 (Global FastGAN Weights):  [Kaggle Link](https://www.kaggle.com/datasets/shridharspol/fastgan-weights-70k-iter/data)
 
 Stage 2 (Classwise Fine-tuned Weights): [Kaggle Link](https://www.kaggle.com/datasets/shridharspol/stgan-stage2-finetuned-weights/settings)
@@ -155,7 +155,7 @@ Synthetic Dataset: [Kaggle Link](https://www.kaggle.com/datasets/shridharspol/sy
 ---
 ---
 
-## 📚 References
+## References
 
 [1] Su, Y., Zhang, H., Chen, Y., Xu, W., Zhao, Y., & Xu, W. (2024).  
 **A GAN-Based Data Augmentation Method for Imbalanced Multi-Class Skin Lesion Classification.**  
