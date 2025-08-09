@@ -60,7 +60,7 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 **Key learnings**
 1. **Lightweight models are viable** for low-resource healthcare (MobileNetV2 is fast and small), but real-world performance is limited more by **data quality/imbalance** than model choice alone.  
 2. **GANs need quality control.** Raw outputs contained duplicates/low-variance samples; **pHash + wHash (threshold=10)** removed near-duplicates and improved diversity.  
-3. **Transfer inside GANs helps.** Stage-1→Stage-2 transfer stabilized minority-class training and reduced time to useful samples.  
+3. **Transfer inside GANs helps.** Stage-1→Stage-2 transfer stabilized minority-class training and reduced time to generate useful samples.  
 4. **Evaluate like you’ll deploy.** Mixed validation can be overly optimistic; **real-only test** is essential for true generalization in medical AI.  
 5. **Pipelines > single models.** A staged design (baseline → GAN → dedup → classifier) plus hosting large assets on Kaggle made the work reproducible and maintainable.
 
