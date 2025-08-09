@@ -70,13 +70,13 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 Large assets are hosted on Kaggle to keep this repo lean.
 
 1. **Stage 1 — Global FastGAN Weights (70K iters)**  
-   `<ADD_KAGGLE_LINK>`
+   `[Kaggle Link](https://www.kaggle.com/datasets/shridharspol/fastgan-weights-70k-iter/data)`
 
 2. **Stage 2 — Classwise Fine-Tuned Weights (all 6 classes)**  
-   `<ADD_KAGGLE_LINK>`
+   `[Kaggle Link](https://www.kaggle.com/datasets/shridharspol/stgan-stage2-finetuned-weights/settings)`
 
 3. **Synthetic Dataset (deduplicated) + Real Test Set (with labels)**  
-   `<ADD_KAGGLE_LINK>`
+   `[Kaggle Link](https://www.kaggle.com/datasets/shridharspol/synthetic-data-ham10000/data)`
 
 > You can reproduce results *without* retraining by downloading the weights, or regenerate everything from the notebooks.
 
@@ -99,7 +99,7 @@ STGAN-HAM10000-VASC-BT.ipynb
 Generated_Images_Deduplication_pHash_wHash.ipynb
 
 # Train classifier with deduplicated synthetic + real data
-Classifier_with_GAN_Augmentation.ipynb
+SkinLesion_Classifier_MobileNetv2_SyntheticData.ipynb
 
 STGAN-Finetune-BarlowTwins/
 ├── stgan_models_finetune.py         # Stage 2 G/D architectures
