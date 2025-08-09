@@ -65,6 +65,29 @@ The pipeline follows the Self-Transfer GAN (STGAN) idea and is implemented with 
 5. **Pipelines > single models.** A staged design (baseline → GAN → dedup → classifier) plus hosting large assets on Kaggle made the work reproducible and maintainable.
 
 ---
+## Why this approach did not generalize?
+
+While the GAN-augmented dataset improved mixed (real + synthetic) validation accuracy to over 90%, performance dropped to ~11% on a purely real test set. The main reasons appear to be:
+
+- Domain gap between synthetic and real images:
+The classifier learned to exploit GAN-specific patterns instead of true medical features, which hurt real-world generalization.
+
+- Synthetic data leakage into validation:
+Validation accuracy was inflated because the validation set contained synthetic samples from the same GAN distribution as the training set.
+
+- Insufficient data for reliable quality metrics:
+FID, KID, and MS-SSIM require a large sample size (typically ≥1000 images per set) for stable and meaningful evaluation. Our smaller per-class synthetic sets led to unstable metric values, making them less useful for guiding model selection.
+
+- GAN output diversity limitations:
+Even after pHash and wHash deduplication (threshold=10), the intra-class diversity of generated images may not have been sufficient to cover the true variation in the minority classes.
+
+- LPIPS results were inconclusive:
+LPIPS stayed under 0.45 in all cases, but this did not correlate with actual classifier performance — highlighting that perceptual similarity alone is not a guarantee of generalization in medical imaging.
+
+- Bias transfer from imbalanced Stage-1 GAN:
+The global GAN in Stage 1 was trained on highly imbalanced data, learning more about majority classes than minority ones. Fine-tuning in Stage 2 may have inherited this bias, introducing noise from irrelevant features learned in Stage 1.
+
+---
 
 ## Datasets & Pretrained Weights (Kaggle)
 Large assets are hosted on Kaggle to keep this repo lean.
@@ -152,7 +175,6 @@ Stage 2 (Classwise Fine-tuned Weights): [Kaggle Link](https://www.kaggle.com/dat
 
 Synthetic Dataset: [Kaggle Link](https://www.kaggle.com/datasets/shridharspol/synthetic-data-ham10000/data)
 
----
 ---
 
 ## References
