@@ -193,4 +193,3 @@ If you use this repository or adapt the methods, please cite both the above pape
 **Shridhar Sunilkumar Pol**  
 MS in Electrical and Computer Engineering  
 Northeastern University  
-Passionate about using AI for social good
